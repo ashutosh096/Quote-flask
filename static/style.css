@@ -1,0 +1,138 @@
+:root {
+  --bg: #12241f;
+  --card: #17332b;
+  --card-border: #2c5347;
+  --cream: #f3ede1;
+  --accent: #f0a687;
+  --muted: #9db3aa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 40px 36px;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed var(--card-border);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+blockquote {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 0 0 18px;
+  font-style: italic;
+  min-height: 108px;
+  color: var(--cream);
+}
+
+.author {
+  font-size: 13px;
+  color: var(--accent);
+  margin: 0 0 32px;
+  letter-spacing: 0.02em;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tag-pill {
+  font-family: inherit;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tag-pill:hover {
+  border-color: var(--accent);
+  color: var(--cream);
+}
+
+.tag-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #17332b;
+  font-weight: 600;
+}
+
+.draw-btn {
+  width: 100%;
+  font-family: inherit;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--cream);
+  color: var(--bg);
+  border: none;
+  border-radius: 3px;
+  padding: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+
+.draw-btn:hover {
+  background: var(--accent);
+}
+
+.draw-btn:active {
+  transform: scale(0.98);
+}
+
+.draw-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

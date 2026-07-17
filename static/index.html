@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote Card</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <p class="label">Card no. <span id="card-number">001</span></p>
+    <blockquote id="quote-text">Loading a quote...</blockquote>
+    <p class="author">— <span id="quote-author"></span></p>
+
+    <div class="tag-row" id="tag-row">
+      <button class="tag-pill active" data-tag="">all</button>
+    </div>
+
+    <button id="draw-btn" class="draw-btn">Draw another card</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
