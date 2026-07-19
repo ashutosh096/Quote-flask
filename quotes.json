@@ -78,5 +78,10 @@
     "text": "Of course, bad code can be cleaned up. But it's very expensive.",
     "author": "Kent Beck",
     "tag": "code"
+  },
+  {
+    "text": "Indeed, the ratio of time spent reading versus writing is over 10 to 1.",
+    "author": "Robert C. Martin",
+    "tag": "code"
   }
 ]
