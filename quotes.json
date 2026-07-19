@@ -343,5 +343,10 @@
     "text": "Computers are good at following instructions, but not at reading your mind.",
     "author": "Donald Knuth",
     "tag": "code"
+  },
+  {
+    "text": "Programming is the art of telling another human what one wants the computer to do.",
+    "author": "Donald Knuth",
+    "tag": "code"
   }
 ]
