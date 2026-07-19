@@ -73,5 +73,10 @@
     "text": "Clean code always looks like it was written by someone who cares.",
     "author": "Michael Feathers",
     "tag": "code"
+  },
+  {
+    "text": "Of course, bad code can be cleaned up. But it's very expensive.",
+    "author": "Kent Beck",
+    "tag": "code"
   }
 ]
