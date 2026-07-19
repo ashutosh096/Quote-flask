@@ -353,5 +353,10 @@
     "text": "Simplicity is prerequisite for reliability.",
     "author": "Edsger W. Dijkstra",
     "tag": "code"
+  },
+  {
+    "text": "There are only two hard things in Computer Science: cache invalidation and naming things.",
+    "author": "Phil Karlton",
+    "tag": "code"
   }
 ]
