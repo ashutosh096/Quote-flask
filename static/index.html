@@ -3,21 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quote Card</title>
+  <title>QuoteForge — Premium Random Quote Engine</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="card">
-    <p class="label">Card no. <span id="card-number">001</span></p>
-    <blockquote id="quote-text">Loading a quote...</blockquote>
-    <p class="author">— <span id="quote-author"></span></p>
+  <div class="background-decor animate-bg"></div>
 
-    <div class="tag-row" id="tag-row">
-      <button class="tag-pill active" data-tag="">all</button>
+  <div class="app-container">
+    <header class="app-header">
+      <h1 class="logo"><i class="fa-solid fa-feather-pointed"></i> QuoteForge</h1>
+      <p class="subtitle">Discover, collect, and curate inspiring ideas</p>
+    </header>
+
+    <!-- Tag Filter Bar -->
+    <section class="filter-section">
+      <div class="tag-row-wrapper">
+        <div class="tag-row" id="tag-row">
+          <button class="tag-pill active" data-tag=""><i class="fa-solid fa-globe"></i> All</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Card Container -->
+    <main class="card-container">
+      <div class="card" id="quote-card">
+        <div class="card-header">
+          <span class="label">Card no. <span id="card-number">001</span></span>
+          <button class="favorite-toggle" id="like-btn" title="Save to Favorites">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        
+        <div class="quote-body">
+          <span class="quote-mark open-quote">“</span>
+          <blockquote id="quote-text">Curating the finest thoughts from developers, writers, and thinkers...</blockquote>
+          <span class="quote-mark close-quote">”</span>
+        </div>
+
+        <div class="card-footer">
+          <p class="author">— <span id="quote-author">Loading</span></p>
+          
+          <div class="action-buttons">
+            <button class="action-btn" id="copy-btn" title="Copy to Clipboard">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+            <button class="action-btn" id="share-btn" title="Share on Twitter/X">
+              <i class="fa-brands fa-x-twitter"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- App Controls -->
+    <section class="app-controls">
+      <button id="draw-btn" class="draw-btn">
+        <i class="fa-solid fa-arrows-rotate"></i> Draw Another Card
+      </button>
+      <div class="control-row">
+        <button id="open-add-btn" class="secondary-btn">
+          <i class="fa-solid fa-plus"></i> Add Custom Quote
+        </button>
+        <button id="open-favs-btn" class="secondary-btn">
+          <i class="fa-solid fa-bookmark"></i> My Collection (<span id="fav-count">0</span>)
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal: Add Quote -->
+  <div class="modal-overlay" id="add-modal">
+    <div class="modal-content">
+      <button class="close-modal" id="close-add-modal"><i class="fa-solid fa-xmark"></i></button>
+      <h2>Forge a New Quote</h2>
+      <p class="modal-description">Add an inspiring quote to the local database.</p>
+      
+      <form id="add-quote-form">
+        <div class="form-group">
+          <label for="new-quote-text">Quote Content</label>
+          <textarea id="new-quote-text" placeholder="Write the words that inspire you..." required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-quote-author">Author</label>
+            <input type="text" id="new-quote-author" placeholder="e.g. Steve Jobs, Unknown" />
+          </div>
+          <div class="form-group">
+            <label for="new-quote-tag">Category Tag</label>
+            <input type="text" id="new-quote-tag" placeholder="e.g. focus, discipline" />
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Save Quote
+        </button>
+      </form>
     </div>
+  </div>
 
-    <button id="draw-btn" class="draw-btn">Draw another card</button>
-  </main>
+  <!-- Modal: Favorites Collection -->
+  <div class="modal-overlay" id="favs-modal">
+    <div class="modal-content favs-modal-content">
+      <button class="close-modal" id="close-favs-modal"><i class="fa-solid fa-xmark"></i></button>
+      <h2>My Collection</h2>
+      <p class="modal-description">Your personalized gallery of liked quotes.</p>
+      
+      <div class="favs-list" id="favs-list">
+        <!-- Liked quotes will be injected here -->
+        <p class="empty-state">No quotes saved yet. Tap the heart icon on any card!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="script.js"></script>
 </body>

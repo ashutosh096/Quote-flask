@@ -5,46 +5,76 @@ Endpoints:
   GET /api/quote            -> a random quote
   GET /api/quote?tag=focus  -> a random quote filtered by tag
   GET /api/tags             -> list of available tags
+  POST /api/quote           -> add a new quote
 """
 
+import json
+import os
 import random
 from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__, static_folder="static", static_url_path="")
 
-QUOTES = [
-    {"text": "Simplicity is the soul of efficiency.", "author": "Austin Freeman", "tag": "focus"},
-    {"text": "Do the hard things first.", "author": "Unknown", "tag": "discipline"},
-    {"text": "Small steps every day beat big leaps once a year.", "author": "Unknown", "tag": "habits"},
-    {"text": "Code is read far more often than it is written.", "author": "Guido van Rossum", "tag": "code"},
-    {"text": "Make it work, make it right, make it fast.", "author": "Kent Beck", "tag": "code"},
-    {"text": "Discipline equals freedom.", "author": "Jocko Willink", "tag": "discipline"},
-    {"text": "The best time to start was yesterday. The next best time is now.", "author": "Unknown", "tag": "habits"},
-    {"text": "Focus on being productive instead of busy.", "author": "Tim Ferriss", "tag": "focus"},
-    {"text": "First, solve the problem. Then, write the code.", "author": "John Johnson", "tag": "code"},
-    {"text": "You do not rise to the level of your goals. You fall to the level of your systems.", "author": "James Clear", "tag": "habits"},
-]
+QUOTES_FILE = os.path.join(os.path.dirname(__file__), "quotes.json")
 
+def load_quotes():
+    if not os.path.exists(QUOTES_FILE):
+        return []
+    try:
+        with open(QUOTES_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
 
-@app.route("/api/quote")
+def save_quotes(quotes):
+    try:
+        with open(QUOTES_FILE, "w", encoding="utf-8") as f:
+            json.dump(quotes, f, indent=2, ensure_ascii=False)
+        return True
+    except Exception:
+        return False
+
+@app.route("/api/quote", methods=["GET"])
 def get_quote():
+    quotes = load_quotes()
+    if not quotes:
+        return jsonify({"error": "No quotes available"}), 404
+        
     tag = request.args.get("tag")
-    pool = [q for q in QUOTES if q["tag"] == tag] if tag else QUOTES
+    pool = [q for q in quotes if q.get("tag") == tag] if tag else quotes
     if not pool:
         return jsonify({"error": f"No quotes found for tag '{tag}'"}), 404
     return jsonify(random.choice(pool))
 
-
-@app.route("/api/tags")
+@app.route("/api/tags", methods=["GET"])
 def get_tags():
-    tags = sorted({q["tag"] for q in QUOTES})
+    quotes = load_quotes()
+    tags = sorted({q["tag"] for q in quotes if "tag" in q and q["tag"]})
     return jsonify(tags)
 
+@app.route("/api/quote", methods=["POST"])
+def add_quote():
+    data = request.get_json()
+    if not data or not data.get("text"):
+        return jsonify({"error": "Quote text is required"}), 400
+        
+    text = data.get("text").strip()
+    author = data.get("author", "Unknown").strip() or "Unknown"
+    tag = data.get("tag", "general").strip().lower() or "general"
+    
+    quotes = load_quotes()
+    new_quote = {"text": text, "author": author, "tag": tag}
+    quotes.append(new_quote)
+    
+    if save_quotes(quotes):
+        return jsonify(new_quote), 201
+    else:
+        return jsonify({"error": "Failed to save the new quote"}), 500
 
 @app.route("/")
 def index():
     return send_from_directory(app.static_folder, "index.html")
 
-
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
