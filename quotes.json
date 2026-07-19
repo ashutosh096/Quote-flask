@@ -53,5 +53,10 @@
     "text": "Talk is cheap. Show me the code.",
     "author": "Linus Torvalds",
     "tag": "code"
+  },
+  {
+    "text": "Programs must be written for people to read, and only incidentally for machines to execute.",
+    "author": "Harold Abelson",
+    "tag": "code"
   }
 ]
