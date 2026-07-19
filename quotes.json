@@ -1,12 +1,57 @@
 [
-  {"text": "Simplicity is the soul of efficiency.", "author": "Austin Freeman", "tag": "focus"},
-  {"text": "Do the hard things first.", "author": "Unknown", "tag": "discipline"},
-  {"text": "Small steps every day beat big leaps once a year.", "author": "Unknown", "tag": "habits"},
-  {"text": "Code is read far more often than it is written.", "author": "Guido van Rossum", "tag": "code"},
-  {"text": "Make it work, make it right, make it fast.", "author": "Kent Beck", "tag": "code"},
-  {"text": "Discipline equals freedom.", "author": "Jocko Willink", "tag": "discipline"},
-  {"text": "The best time to start was yesterday. The next best time is now.", "author": "Unknown", "tag": "habits"},
-  {"text": "Focus on being productive instead of busy.", "author": "Tim Ferriss", "tag": "focus"},
-  {"text": "First, solve the problem. Then, write the code.", "author": "John Johnson", "tag": "code"},
-  {"text": "You do not rise to the level of your goals. You fall to the level of your systems.", "author": "James Clear", "tag": "habits"}
+  {
+    "text": "Simplicity is the soul of efficiency.",
+    "author": "Austin Freeman",
+    "tag": "focus"
+  },
+  {
+    "text": "Do the hard things first.",
+    "author": "Unknown",
+    "tag": "discipline"
+  },
+  {
+    "text": "Small steps every day beat big leaps once a year.",
+    "author": "Unknown",
+    "tag": "habits"
+  },
+  {
+    "text": "Code is read far more often than it is written.",
+    "author": "Guido van Rossum",
+    "tag": "code"
+  },
+  {
+    "text": "Make it work, make it right, make it fast.",
+    "author": "Kent Beck",
+    "tag": "code"
+  },
+  {
+    "text": "Discipline equals freedom.",
+    "author": "Jocko Willink",
+    "tag": "discipline"
+  },
+  {
+    "text": "The best time to start was yesterday. The next best time is now.",
+    "author": "Unknown",
+    "tag": "habits"
+  },
+  {
+    "text": "Focus on being productive instead of busy.",
+    "author": "Tim Ferriss",
+    "tag": "focus"
+  },
+  {
+    "text": "First, solve the problem. Then, write the code.",
+    "author": "John Johnson",
+    "tag": "code"
+  },
+  {
+    "text": "You do not rise to the level of your goals. You fall to the level of your systems.",
+    "author": "James Clear",
+    "tag": "habits"
+  },
+  {
+    "text": "Talk is cheap. Show me the code.",
+    "author": "Linus Torvalds",
+    "tag": "code"
+  }
 ]
