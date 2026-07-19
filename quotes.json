@@ -328,5 +328,10 @@
     "text": "Optimism is a occupational hazard of programming: feedback is the treatment.",
     "author": "Kent Beck",
     "tag": "code"
+  },
+  {
+    "text": "It's not a bug – it's an undocumented feature.",
+    "author": "Unknown",
+    "tag": "code"
   }
 ]
