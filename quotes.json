@@ -118,5 +118,10 @@
     "text": "Simplicity is the ultimate sophistication.",
     "author": "Leonardo da Vinci",
     "tag": "focus"
+  },
+  {
+    "text": "Make it work, make it right, make it fast.",
+    "author": "Kent Beck",
+    "tag": "code"
   }
 ]
