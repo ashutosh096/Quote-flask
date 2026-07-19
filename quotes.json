@@ -333,5 +333,10 @@
     "text": "It's not a bug – it's an undocumented feature.",
     "author": "Unknown",
     "tag": "code"
+  },
+  {
+    "text": "The best error message is the one that never shows up.",
+    "author": "Thomas Fuchs",
+    "tag": "code"
   }
 ]
