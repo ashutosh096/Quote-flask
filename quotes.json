@@ -348,5 +348,10 @@
     "text": "Programming is the art of telling another human what one wants the computer to do.",
     "author": "Donald Knuth",
     "tag": "code"
+  },
+  {
+    "text": "Simplicity is prerequisite for reliability.",
+    "author": "Edsger W. Dijkstra",
+    "tag": "code"
   }
 ]
