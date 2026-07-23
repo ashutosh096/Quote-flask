@@ -71,6 +71,16 @@ def add_quote():
     else:
         return jsonify({"error": "Failed to save the new quote"}), 500
 
+
+@app.route("/api/health", methods=["GET"])
+def health_check():
+    quotes = load_quotes()
+    return jsonify({
+        "status": "healthy",
+        "total_quotes": len(quotes),
+        "version": "1.0.0"
+    })
+
 @app.route("/")
 def index():
     return send_from_directory(app.static_folder, "index.html")
