@@ -340,3 +340,12 @@ loadFavorites();
 setupEventListeners();
 loadTags();
 drawQuote();
+
+
+// Space key shortcut to trigger new random quote
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+    e.preventDefault();
+    drawBtn.click();
+  }
+});
