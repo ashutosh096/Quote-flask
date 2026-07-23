@@ -70,6 +70,7 @@ quote-flask/
 | **GET** | `/api/quote` | Fetch a random quote. | `tag` (optional query string to filter) |
 | **GET** | `/api/tags` | Retrieve all distinct tags currently in the database. | None |
 | **POST** | `/api/quote` | Forge and save a new quote to `quotes.json`. | `{ "text": "...", "author": "...", "tag": "..." }` |
+| **GET** | `/api/health` | Check backend service health status and quote count. | None |
 
 ---
 
