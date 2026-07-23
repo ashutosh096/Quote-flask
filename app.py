@@ -75,6 +75,15 @@ def add_quote():
 def index():
     return send_from_directory(app.static_folder, "index.html")
 
+
+@app.after_request
+def add_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    return response
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
 
