@@ -21,3 +21,4 @@
 - Timestamp: 2026-07-29T22:40:24.6098352+05:30 | Task: docs: add deployment instructions for Flask app (18/27)
 - Timestamp: 2026-07-29T22:40:25.0050873+05:30 | Task: style: refine dark mode color palette accents (19/27)
 - Timestamp: 2026-07-29T22:40:25.4001983+05:30 | Task: refactor: modularize request handler helper utilities (20/27)
+- Timestamp: 2026-07-29T22:40:25.8134590+05:30 | Task: feat: support case-insensitive tag search (21/27)
