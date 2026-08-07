@@ -37,3 +37,4 @@
 - Timestamp: 2026-08-07T23:02:51.3565378+05:30 | Task: style: enhance readable typography and element spacing (4/13)
 - Timestamp: 2026-08-07T23:02:51.8448547+05:30 | Task: feat: add utility helper comments to core Flask routes (5/13)
 - Timestamp: 2026-08-07T23:02:52.0830150+05:30 | Task: chore: update daily contribution activity timestamp markers (6/13)
+- Timestamp: 2026-08-07T23:02:52.3346548+05:30 | Task: docs: update deployment guidelines and setup notes (7/13)
